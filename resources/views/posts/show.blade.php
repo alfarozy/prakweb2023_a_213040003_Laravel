@@ -3,10 +3,13 @@
 @section('container')
     <article>
         <h2>{{ $post->title }}</h2>
-        <h6>Kategori : {{ $post->category->name }}</h6>
-        <h5>{{ $post->author }}</h5>
-        <p>{{ $post->body }}</p>
+
+        <p>By. <a href="#" class="text-decoration-none">{{ $post->user->name }}</a> in <a
+                href="/categories/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a>
+        </p>
+
+        {!! $post->body !!} {{-- {!! !!} is used to prevent XSS attack --}}
     </article>
 
-    <a href="{{ route('posts') }}">Back to Posts</a>
+    <a href="/{{ route('posts') }}" class="d-block mt-3">Back to Posts</a>
 @endsection

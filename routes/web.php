@@ -19,12 +19,12 @@ use App\Models\Category;
 
 Route::get('/', function () {
     return view('home', [
-        "judul" => "Home"
+        "title" => "Home"
     ]);
 })->name('home');
 Route::get('/about', function () {
     return view('about', [
-        "judul" => "About",
+        "title" => "About",
         "nama" => "Muhammad Alfarozi",
         "email" => "mr.alfarozy.a.n@gmail.com",
         "gambar" => "avatar.png",
@@ -36,18 +36,17 @@ Route::get('/about', function () {
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
-Route::get('/create', [BlogController::class, 'create'])->name('posts.create');
 Route::get('/categories', function () {
-    return view('categories', [
+    return view('category.index', [
         'title' => "Post Categories",
         'categories' => Category::get()
     ]);
-});
+})->name('category.index');
 
 Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('category', [
+    return view('category.show', [
         'title' => $category->name,
         'posts' => $category->posts,
         'category' => $category->name
     ]);
-});
+})->name('category.show');

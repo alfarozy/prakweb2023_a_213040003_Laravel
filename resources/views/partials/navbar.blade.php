@@ -14,7 +14,11 @@
                     <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('posts.*') ? 'active' : '' }}" href="/posts">posts</a>
+                    <a class="nav-link {{ request()->routeIs('posts.*') ? 'active' : '' }}" href="/posts">Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('category.*') ? 'active' : '' }}"
+                        href="{{ route('category.index') }}">Kategori</a>
                 </li>
             </ul>
         </div>
