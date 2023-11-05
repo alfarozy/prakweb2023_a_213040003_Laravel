@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PostController;
 use App\Models\Category;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +51,10 @@ Route::get('/categories/{category:slug}', function (Category $category) {
         'category' => $category->name
     ]);
 })->name('category.show');
+
+Route::get('/authors/{author:username}', function (User $author) {
+    return view('posts.index', [
+        'title' => "User Post",
+        'posts' => $author->posts
+    ]);
+});
