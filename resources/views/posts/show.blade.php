@@ -7,5 +7,5 @@
         <p>{{ $blog['body'] }}</p>
     </article>
 
-    <a href="{{ route('blogs') }}">Back to Posts</a>
+    <a href="{{ route('posts') }}">Back to Posts</a>
 @endsection

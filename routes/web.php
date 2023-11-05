@@ -32,5 +32,5 @@ Route::get('/about', function () {
     ]);
 })->name('about');
 
-Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
-Route::get('blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show');
+Route::get('/posts', [BlogController::class, 'index'])->name('posts');
+Route::get('posts/{slug}', [BlogController::class, 'show'])->name('posts.show');

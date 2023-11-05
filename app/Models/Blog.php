@@ -4,7 +4,7 @@ namespace App\Models;
 
 class Blog
 {
-    private static $post_blogs = [
+    private static $post_posts = [
         [
             'judul' => "Judul Post Pertama",
             'slug' => "judul-post-pertama",
@@ -21,11 +21,11 @@ class Blog
 
     public static function all()
     {
-        return collect(self::$post_blogs);
+        return collect(self::$post_posts);
     }
     public static function find($slug)
     {
-        $post_blogs = static::all();
-        return $post_blogs->firstWhere('slug', $slug);
+        $post_posts = static::all();
+        return $post_posts->firstWhere('slug', $slug);
     }
 }
