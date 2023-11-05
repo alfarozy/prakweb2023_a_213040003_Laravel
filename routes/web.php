@@ -3,6 +3,8 @@
 use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PostController;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +34,20 @@ Route::get('/about', function () {
     ]);
 })->name('about');
 
-Route::get('/posts', [BlogController::class, 'index'])->name('posts');
-Route::get('posts/{post:slug}', [BlogController::class, 'show'])->name('posts.show');
+Route::get('/posts', [PostController::class, 'index'])->name('posts');
+Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/create', [BlogController::class, 'create'])->name('posts.create');
+Route::get('/categories', function () {
+    return view('categories', [
+        'title' => "Post Categories",
+        'categories' => Category::get()
+    ]);
+});
+
+Route::get('/categories/{category:slug}', function (Category $category) {
+    return view('category', [
+        'title' => $category->name,
+        'posts' => $category->posts,
+        'category' => $category->name
+    ]);
+});

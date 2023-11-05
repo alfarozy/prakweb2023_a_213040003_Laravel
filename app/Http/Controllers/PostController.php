@@ -9,17 +9,17 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('posts', [
+        return view('posts.index', [
             'title' => "Posts",
             'posts' => Post::all()
         ]);
     }
 
-    public function show($slug)
+    public function show(Post $post)
     {
-        return view('post', [
+        return view('posts.show', [
             'title' => "Single Post",
-            'post' => Post::find($slug)
+            'post' => $post
         ]);
     }
 }
