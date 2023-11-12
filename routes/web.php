@@ -43,18 +43,3 @@ Route::get('/categories', function () {
         'categories' => Category::get()
     ]);
 })->name('category.index');
-
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('category.show', [
-        'title' => $category->name,
-        'posts' => $category->posts,
-        'category' => $category->name
-    ]);
-})->name('category.show');
-
-Route::get('/authors/{author:username}', function (User $author) {
-    return view('posts.index', [
-        'title' => "User Post",
-        'posts' => $author->posts
-    ]);
-});
