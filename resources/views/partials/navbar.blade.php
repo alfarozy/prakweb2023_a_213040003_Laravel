@@ -6,7 +6,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="/">Home</a>
                 </li>
@@ -21,6 +21,14 @@
                         href="{{ route('category.index') }}">Kategori</a>
                 </li>
             </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('auth.login') ? 'active' : '' }}"
+                        href="{{ route('auth.login') }}">Login</a>
+                </li>
+            </ul>
         </div>
+
     </div>
 </nav>
