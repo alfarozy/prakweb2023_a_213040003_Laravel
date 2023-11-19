@@ -3,6 +3,7 @@
 use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -47,6 +48,11 @@ Route::get('/categories', function () {
 })->name('category.index');
 
 
-Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
-Route::get('/register', [RegisterController::class, 'index'])->name('auth.register');
+Route::get('/login', [LoginController::class, 'index'])->name('auth.login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('auth.login');
+Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout');
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest')->name('auth.register');
 Route::post('/register', [RegisterController::class, 'store'])->name('auth.register');
+
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');

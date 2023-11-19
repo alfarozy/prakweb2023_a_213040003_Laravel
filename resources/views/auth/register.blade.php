@@ -8,9 +8,9 @@
                 <form action="{{ route('auth.register') }}" method="POST">
                     @csrf
                     <div class="form-floating mb-2">
-                        <label for="name">Name</label>
                         <input type="text" name="name" class="form-control rounded @error('name') is-invalid @enderror"
                             id="name" placeholder="Name" required value="{{ old('name') }}">
+                        <label for="name">Name</label>
                         @error('name')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -18,10 +18,10 @@
                         @enderror
                     </div>
                     <div class="form-floating mb-2">
-                        <label for="username">Username</label>
                         <input type="text" name="username"
                             class="form-control rounded @error('username') is-invalid @enderror" id="username"
                             placeholder="Username" value="{{ old('username') }}">
+                        <label for="username">Username</label>
                         @error('username')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -29,10 +29,10 @@
                         @enderror
                     </div>
                     <div class="form-floating mb-2">
-                        <label for="email">Email address</label>
                         <input type="email" name="email"
                             class="form-control rounded @error('email') is-invalid @enderror" id="email"
                             placeholder="name@example.com" value="{{ old('email') }}">
+                        <label for="email">Email address</label>
                         @error('email')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -40,10 +40,10 @@
                         @enderror
                     </div>
                     <div class="form-floating mb-2">
-                        <label for="password">Password</label>
                         <input type="password" name="password"
                             class="form-control rounded @error('name') is-invalid @enderror" id="password"
                             placeholder="Password">
+                        <label for="password">Password</label>
                         @error('password')
                             <div class="invalid-feedback">
                                 {{ $message }}
