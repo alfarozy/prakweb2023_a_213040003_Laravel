@@ -16,18 +16,36 @@ class RegisterController extends Controller
     }
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'username' => ['required', 'min:3', 'max:255', 'unique:users'],
-            'email' => 'required|email:dns|unique:users',
-            'password' => 'required|min:5|max:255'
-        ]);
+        $attr = $request->validate(
+            [
+                'name' => 'required|max:255',
+                'username' => ['required', 'min:3', 'max:255', 'unique:users'],
+                'email' => 'required|email:dns|unique:users',
+                'password' => 'required|min:5|max:255'
+            ],
+            [
+                'name.required' => 'Kolom nama harus diisi.',
+                'name.max' => 'Panjang maksimal kolom nama adalah 255 karakter.',
 
-        // $validatedData['password'] = bcrypt($validatedData['password']);
-        $validatedData['password'] = Hash::make($validatedData['password']);
+                'username.required' => 'Kolom username harus diisi.',
+                'username.min' => 'Panjang minimal kolom username adalah 3 karakter.',
+                'username.max' => 'Panjang maksimal kolom username adalah 255 karakter.',
+                'username.unique' => 'Username sudah digunakan. Pilih username lain.',
 
-        User::create($validatedData);
+                'email.required' => 'Kolom email harus diisi.',
+                'email.email' => 'Format email tidak valid.',
+                'email.unique' => 'Email sudah digunakan. Pilih email lain.',
 
-        return redirect('/login')->with('success', 'Registration successfull! Please login.');
+                'password.required' => 'Kolom password harus diisi.',
+                'password.min' => 'Panjang minimal kolom password adalah 5 karakter.',
+                'password.max' => 'Panjang maksimal kolom password adalah 255 karakter.',
+            ]
+        );
+
+        $attr['password'] = Hash::make($attr['password']);
+
+        User::create($attr);
+
+        return redirect('/login')->with('success', 'Pendaftaran berhasil, silahkan login.');
     }
 }
