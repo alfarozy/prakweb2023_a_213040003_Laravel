@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory, Sluggable;
-    protected $fillable = ['title', 'category_id', 'slug', 'excerpt', 'body', 'user_id'];
+    protected $fillable = ['title', 'category_id', 'slug', 'image', 'excerpt', 'body', 'user_id'];
     protected $with = ['category', 'author'];
 
     public function category()

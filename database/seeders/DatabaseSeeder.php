@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        User::factory(3)->create();
+        // User::factory(3)->create();
         Category::create([
             'name' => 'Web Programing',
             'slug' => 'web-programing'
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         ]);
         Post::factory(20)->create();
 
-        // $this->call(UserSeeder::class);
+        $this->call(UserSeeder::class);
         // $this->call(PostSeeder::class);
     }
 }
