@@ -80,7 +80,12 @@ class DashboardPostController extends Controller
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = str()->limit(strip_tags($request->body, 200));
-
+        if ($request->file('image')) {
+            if ($post->image) {
+                Storage::delete($post->image);
+            }
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
         Post::where('id', $post->id)->update($validatedData);
 
         return redirect('/dashboard/posts')->with('success', 'New post has been updated!');
