@@ -1,0 +1,10 @@
+[30-Nov-2023 00:09:11 America/New_York] PHP Warning:  require(/home/dikavdtb/prakweb2023_a_213040003_Laravel/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dikavdtb/prakweb2023_a_213040003_Laravel/artisan on line 18
+[30-Nov-2023 00:09:11 America/New_York] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dikavdtb/prakweb2023_a_213040003_Laravel/vendor/autoload.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dikavdtb/prakweb2023_a_213040003_Laravel/artisan:18
+Stack trace:
+#0 {main}
+  thrown in /home/dikavdtb/prakweb2023_a_213040003_Laravel/artisan on line 18
+[30-Nov-2023 00:09:17 America/New_York] PHP Warning:  require(/home/dikavdtb/prakweb2023_a_213040003_Laravel/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dikavdtb/prakweb2023_a_213040003_Laravel/artisan on line 18
+[30-Nov-2023 00:09:17 America/New_York] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dikavdtb/prakweb2023_a_213040003_Laravel/vendor/autoload.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dikavdtb/prakweb2023_a_213040003_Laravel/artisan:18
+Stack trace:
+#0 {main}
+  thrown in /home/dikavdtb/prakweb2023_a_213040003_Laravel/artisan on line 18
